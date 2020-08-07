@@ -72,19 +72,77 @@ body > div {
   }
 }
 
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+#listItems {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#listItems li {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+.listDiv{
+    display: flex;
+}
+
+.innerListDiv{
+    display: inline-grid;
+}
+
+.title{
+    color: red;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.message{
+    font-weight: normal;
+    font-size: small;
+}
+
+.time{
+    font-weight: normal;
+    font-size: xx-small;
+    margin-top: 0.3rem;
+    color: rgba(41, 41, 41, 0.5);
+}
+
+.innerListDivImg{
+    margin-right: 0.5rem;
+}
+
+
+
+#listItems li:hover:not(.header) {
+  background-color: #eee;
+}
+
 </style>
 </head>
 <body>
 
-<h2>Ticker Demo</h2>
-
-<div>
-    <div class="loading-container">
-      <div class="loading"></div>
-    </div>
-    <div class="container">
-      <div class="card-wrapper">
-        <ul id="listItems">
+    <div>
+        <div class="loading-container">
+          <div class="loading"></div>
+        </div>
+        <div class="container">
+          
+            
             <li>
                 <div class="listDiv">
                     <div>
@@ -96,7 +154,8 @@ body > div {
                     </div>
                 </div>
             </li>
-          <li>
+
+            <li>
                 <div class="listDiv">
                     <div>
                         <img src="https://via.placeholder.com/50"/>
@@ -107,18 +166,11 @@ body > div {
                     </div>
                 </div>
             </li>
-      </div>
-    </div>
-    <!-- <script src="script.js"></script> -->
-  </div>
-
-
-</ul>
-
-<script>
-    
-
-    const pStart = { x: 0, y: 0 };
+          
+          
+        </div>
+        <script src="script.js">
+            const pStart = { x: 0, y: 0 };
 const pCurrent = { x: 0, y: 0 };
 const cards = document.querySelectorAll(".card");
 const main = document.querySelector("body > div");
@@ -174,7 +226,12 @@ document.addEventListener("touchstart", e => swipeStart(e), false);
 document.addEventListener("touchmove", e => swipe(e), false);
 document.addEventListener("touchend", e => swipeEnd(e), false);
 
+        </script>
+      </div>
+
+<script>
     
+
 
 
 
