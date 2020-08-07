@@ -158,7 +158,8 @@ const pStart = { x: 0, y: 0 };
 
         let cnt = 3;
         
-        
+        addItem(listItems[cnt].title, listItems[cnt].message, listItems[cnt].img, listItems[cnt].time, container);
+                cnt++;
 
         main.style.transform = `translateY(0px)`;
         setTimeout(() => {
@@ -166,11 +167,11 @@ const pStart = { x: 0, y: 0 };
             isLoading = false;
             for (const card of cards) {
                 card.style.transform = `rotateX(0deg)`;
-                addItem(listItems[cnt].title, listItems[cnt].message, listItems[cnt].img, listItems[cnt].time, container);
-                cnt++;
+                
 
             }
         }, 2000);
+        
     }
 
     function swipeStart(e) {
