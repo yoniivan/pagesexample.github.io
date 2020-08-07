@@ -10,7 +10,6 @@
 }
 
 body {
-  background: #004b;
 }
 
 body > div {
@@ -72,6 +71,62 @@ body > div {
 }
 
 </style>
+
+<style>
+    #listItems {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#listItems li {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+.listDiv{
+    display: flex;
+}
+
+.innerListDiv{
+    display: inline-grid;
+}
+
+.title{
+    color: red;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.message{
+    font-weight: normal;
+    font-size: small;
+}
+
+.time{
+    font-weight: normal;
+    font-size: xx-small;
+    margin-top: 0.3rem;
+    color: rgba(41, 41, 41, 0.5);
+}
+
+.innerListDivImg{
+    margin-right: 0.5rem;
+}
+
+
+
+#listItems li:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+
 </head>
 <body>
 
@@ -79,16 +134,13 @@ body > div {
         <div class="loading-container">
           <div class="loading"></div>
         </div>
-        <div class="container">
+        <div id="container" class="container">
 
           <div class="card-wrapper">
             <div id="card" class="card">
-
-
+                <!-- Generates here -->
             </div>
           </div>
-
-
         </div>
       </div>
 
@@ -158,14 +210,19 @@ body > div {
     ]
 
     function myFunction() {
-        const card = document.getElementById("card");
+        const container = document.getElementById("container");
         listItems.map(item => {
-            addItem(item.title, item.message, item.img, item.time, card);
+            addItem(item.title, item.message, item.img, item.time, container);
         })
     }
     myFunction();
 
-    function addItem(title, message, img, time, card){
+    function addItem(title, message, img, time, container){
+        let card = document.createElement("div");
+        card.setAttribute('class', 'card');
+
+        let outer_div = document.createElement("div");
+        card.setAttribute('class', 'card');
 
         let div_wapper = document.createElement("div");
         div_wapper.setAttribute('class', 'listDiv');
@@ -191,13 +248,16 @@ body > div {
         message_a.setAttribute('class','message');
         message_a.text = message;
         
+        card.appendChild(outer_div);
+        outer_div.appendChild(div_wapper);
         div_wapper.appendChild(div1);
         div_wapper.appendChild(div2);
         div1.appendChild(img_elm);
         div2.appendChild(title_a);
         div2.appendChild(message_a);
         div2.appendChild(time_a);
-        card.appendChild(div_wapper);
+        container.appendChild(card);
+        
     }
     
 </script>
