@@ -158,12 +158,13 @@ const pStart = { x: 0, y: 0 };
 
         let cnt = 3;
         
-        addItem(listItems[cnt].title, listItems[cnt].message, listItems[cnt].img, listItems[cnt].time, container);
-                cnt++;
+        
 
         main.style.transform = `translateY(0px)`;
         setTimeout(() => {
             main.style.transform = `translateY(-100px)`;
+            addItem(listItems[cnt].title, listItems[cnt].message, listItems[cnt].img, listItems[cnt].time, container);
+                cnt++;
             isLoading = false;
             for (const card of cards) {
                 card.style.transform = `rotateX(0deg)`;
