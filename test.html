@@ -152,19 +152,18 @@ const pStart = { x: 0, y: 0 };
         const cards = document.querySelectorAll(".card");
         const main = document.querySelector("body > div");
         let isLoading = false;
+        let cnt = 3;
 
     function loading() {
         isLoading = true;
 
-        let cnt = 3;
         
         
 
         main.style.transform = `translateY(0px)`;
         setTimeout(() => {
             main.style.transform = `translateY(-100px)`;
-            addItem(listItems[cnt].title, listItems[cnt].message, listItems[cnt].img, listItems[cnt].time, container);
-                cnt++;
+            
             isLoading = false;
             for (const card of cards) {
                 card.style.transform = `rotateX(0deg)`;
@@ -198,6 +197,8 @@ const pStart = { x: 0, y: 0 };
     let touch = e.changedTouches[0];
     pCurrent.x = touch.screenX;
     pCurrent.y = touch.screenY;
+    addItem(listItems[cnt].title, listItems[cnt].message, listItems[cnt].img, listItems[cnt].time, container);
+                cnt++;
     } else {
     pCurrent.x = e.screenX;
     pCurrent.y = e.screenY;
