@@ -76,11 +76,19 @@
 
 <script>
     PullToRefresh.init({
-     mainElement: 'body',
-     onRefresh: function(){ 
-        alert('refresh');
-         }
-    });
+  mainElement: '#listItems', // above which element?
+  onRefresh: function(){
+    var promise = new Promise(
+      function(resolve, reject){
+        setTimeout(()=>{
+          resolve();
+          alert('refresh');
+        }, 1500);
+      }
+    );
+    return promise;
+  }
+});
     
     var listItems = [
         {
