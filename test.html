@@ -31,10 +31,9 @@ body > div {
 }
 
 .card {
-  height: 200px;
   width: 100%;
+  border-bottom: 1px gray solid;
   /* background: #fc3; */
-  border-radius: 20px;
   margin-bottom: 25px;
   transform-style: preserve-3d;
   transition: all 0.2s ease-out;
@@ -89,6 +88,7 @@ body > div {
   font-size: 18px;
   color: black;
   display: block
+  
 }
 
 .listDiv{
@@ -115,6 +115,7 @@ body > div {
     font-size: xx-small;
     margin-top: 0.3rem;
     color: rgba(41, 41, 41, 0.5);
+    margin-bottom: 10px;
 }
 
 .innerListDivImg{
@@ -197,8 +198,7 @@ const pStart = { x: 0, y: 0 };
     let touch = e.changedTouches[0];
     pCurrent.x = touch.screenX;
     pCurrent.y = touch.screenY;
-    addItem(listItems[cnt].title, listItems[cnt].message, listItems[cnt].img, listItems[cnt].time, container);
-                cnt++;
+
     } else {
     pCurrent.x = e.screenX;
     pCurrent.y = e.screenY;
